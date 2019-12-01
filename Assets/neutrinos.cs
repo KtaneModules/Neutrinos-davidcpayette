@@ -60,11 +60,12 @@ public class neutrinos : MonoBehaviour
             Debug.LogFormat("[Neutrinos #{0}] Neutrino " + (i+1).ToString() + " starting flavor is " + GetFlavorLabel(startingFlavors[i]) + bar,moduleId);
             finalFlavors[i] = FindNeutrino(startingFlavors[i], i + 1);
             bar = (finalFlavors[i] > 2) ? " bar" : "";
+            if (finalFlavors[i] == 6) bar = "nope";
             Debug.LogFormat("[Neutrinos #{0}] Neutrino " + (i + 1).ToString() + " final flavor is " + GetFlavorLabel(finalFlavors[i]) + bar, moduleId);
         }
         fastesttimes = times.ToList();
         fastesttimes.Sort();
-        FindAnnihilations();       
+        FindAnnihilations();      
         moduleReady = true;
     }
 
@@ -262,17 +263,17 @@ public class neutrinos : MonoBehaviour
                 break;
         }
         Debug.LogFormat("[Neutrinos #{0}] Neutrino " + pos + " momentum is " + mom, moduleId);
-        double beta = Math.Round(mom / neutrinoMass,3);
+        double beta = Math.Round(mom / neutrinoMass,3,MidpointRounding.AwayFromZero);
         Debug.LogFormat("[Neutrinos #{0}] Neutrino " + pos + " speed is " + beta, moduleId);
-        if (beta - 1 == 0)
+        if (mom == 1.2)
         {
-            Debug.LogFormat("[Neutrinos #{0}] You broke physics... Just submit because nothing is real anymore.");
+            Debug.LogFormat("[Neutrinos #{0}] You broke physics... Just submit because nothing is real anymore.", moduleId);
             brokenphysics = true;
             return 6;
         }
-        double gamma = Math.Round(Gamma(beta),3);
+        double gamma = Math.Round(Gamma(beta),3,MidpointRounding.AwayFromZero);
         Debug.LogFormat("[Neutrinos #{0}] Neutrino " + pos + " gamma is " + gamma, moduleId, moduleId);
-        double length = Math.Round(planetDists[planetIndex] / gamma,3);
+        double length = Math.Round(planetDists[planetIndex] / gamma,3,MidpointRounding.AwayFromZero);
         Debug.LogFormat("[Neutrinos #{0}] Neutrino " + pos + " distrance travelled is " + length, moduleId);
         int time = (int) Math.Floor(length / beta);
         Debug.LogFormat("[Neutrinos #{0}] Neutrino " + pos + " travel time is " + time, moduleId);

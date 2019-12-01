@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Neutrinos
   author: Theta
   description: "A module about Neutrino Oscillations... \n\nModule by Theta\n\nmoduleID:neutrinos\n\nIncludes
-    TP support!"
+    TP support!\n\nHTML manual located here: https://ktane.timwi.de/HTML/Neutrinos.html"
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 2b27f71d220eac64a96a09506e6896df, type: 3}
