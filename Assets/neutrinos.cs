@@ -87,6 +87,7 @@ public class neutrinos : MonoBehaviour
                             finalFlavors[i1] = 6;
                             finalFlavors[j1] = 6;
                             Debug.LogFormat("[Neutrinos #{0}] Neutrinos " + (Math.Min(i1, j1) + 1).ToString() + " and " + (Math.Max(i1, j1) + 1).ToString() + " have annihilated! Submit these as empty neutrinos instead.", moduleId);
+                            return;
                         }
                     }
                 }
