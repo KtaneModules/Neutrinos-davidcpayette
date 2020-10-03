@@ -81,8 +81,8 @@ public class neutrinos : MonoBehaviour
                 {
                     if (j != i)
                     {
-                        int j1 = times.ToList().IndexOf(fastesttimes[j]);
-                        if ((finalFlavors[j1] == f + 3 || finalFlavors[j1] == f - 3) && finalFlavors[j1] != 6)
+                        int j1 = times.ToList().LastIndexOf(fastesttimes[j]);
+                        if ((finalFlavors[j1] == f + 3 || finalFlavors[j1] == f - 3) && finalFlavors[j1] != 6)                 
                         {
                             finalFlavors[i1] = 6;
                             finalFlavors[j1] = 6;
